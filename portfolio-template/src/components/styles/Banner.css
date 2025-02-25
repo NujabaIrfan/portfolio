@@ -1,0 +1,35 @@
+/* src/Banner.css */
+.banner {
+    background-image: url('https://plus.unsplash.com/premium_photo-1701534008693-0eee0632d47a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2Vic2l0ZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .banner-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    overflow: hidden; /* Ensures the text doesn't overflow */
+    border-right: 0.15em solid orange; /* Typing cursor effect */
+    white-space: nowrap; /* Keeps the text in a single line */
+    margin: 0 auto; /* Centers the text */
+    letter-spacing: 0.15em; /* Adjust spacing between letters */
+    animation: blink-caret 0.75s step-end infinite;
+  }
+  
+  .banner-content p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    opacity: 0.8;
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
