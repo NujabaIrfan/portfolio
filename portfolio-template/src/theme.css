@@ -50,7 +50,6 @@ button:hover {
 
 /* Section Styling */
 section {
-  padding: 20px;
   border-radius: 8px;
   transition: background-color 0.3s, color 0.3s;
 }
