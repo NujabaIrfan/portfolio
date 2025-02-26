@@ -6,6 +6,9 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData); // Optional: For debugging or additional logic
+
+    // Clear the form fields after submission
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
