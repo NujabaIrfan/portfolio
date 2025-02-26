@@ -5,6 +5,7 @@ import Projects from './components/project';
 import Skills from './components/skills';
 import Contact from './components/contact';
 import Banner from './components/banner';
+import Footer from './components/footer'
 import 'animate.css';
 import './theme.css';
 
@@ -27,6 +28,7 @@ function App() {
       <section id="contact">
         <Contact />
       </section>
+      <Footer/>
     </div>
   );
 }
