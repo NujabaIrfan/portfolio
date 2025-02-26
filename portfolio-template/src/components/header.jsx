@@ -7,6 +7,8 @@ const Header = () => {
     return localStorage.getItem('theme') === 'dark';
   });
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu toggle
+
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
@@ -23,20 +25,29 @@ const Header = () => {
     setIsDarkMode((prev) => !prev);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return (
     <header className={`header ${isDarkMode ? 'dark-mode' : ''}`}>
       <div className="logo">
         <a href="#home">Portfolio</a>
       </div>
-      <nav>
+      <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About</a></li>
+          <li><a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a></li>
+          <li><a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a></li>
+          <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</a></li>
         </ul>
       </nav>
       <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+      <button className="menu-toggle" onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
   );
 };

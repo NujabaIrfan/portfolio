@@ -15,13 +15,10 @@ body.light-mode {
   transition: color 0.3s;
 }
 
-.light-mode a{
-  color: white; /* Darker orange on hover */
-}
-
-.light-mode a:hover{
+.light-mode a:hover {
   color: orange; /* Darker orange on hover */
 }
+
 .light-mode section {
   background-color: #fff8f0; /* Soft orange-tinted white */
   color: #000000; /* Ensures section text is black */
@@ -166,4 +163,60 @@ nav ul li a:hover {
 
 .theme-toggle.dark-mode .fa-moon {
   opacity: 1;
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--header-text, #000000);
+  transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    right: 0;
+    background-color: var(--header-bg, #ff6200);
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 60px);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  nav.open {
+    transform: translateX(0);
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  nav ul li a {
+    padding: 1rem 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
 }
