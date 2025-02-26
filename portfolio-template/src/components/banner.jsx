@@ -1,6 +1,5 @@
-// src/Banner.jsx
 import React, { useState, useEffect } from 'react';
-import './styles/Banner.css'; // We'll create this CSS file next
+import './styles/Banner.css'; 
 
 const Banner = () => {
   const [text, setText] = useState('');
@@ -26,7 +25,7 @@ const Banner = () => {
     <div className="banner">
       <div className="banner-content">
         <h1>{text}</h1>
-        <p>Web Developer | UX / UI Designer| Creative Thinker</p> {/* Customize this subtitle */}
+        <p>Web Developer | UX / UI Designer | Creative Thinker</p> {/* Customize this subtitle */}
       </div>
     </div>
   );
