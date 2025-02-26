@@ -1,32 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { FaSun, FaMoon } from 'react-icons/fa'; // Import sun and moon icons from react-icons
 
-const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem('theme') === 'dark');
-
-  // Toggle the theme
-  const toggleTheme = () => {
-    setIsDarkMode((prevMode) => !prevMode);
-  };
-
-  // Persist theme selection in localStorage
-  useEffect(() => {
-    if (isDarkMode) {
-      localStorage.setItem('theme', 'dark');
-      document.body.classList.add('dark-mode');
-      document.body.classList.remove('light-mode');
-    } else {
-      localStorage.setItem('theme', 'light');
-      document.body.classList.add('light-mode');
-      document.body.classList.remove('dark-mode');
-    }
-  }, [isDarkMode]);
-
+const ThemeToggle = ({ isDarkMode, toggleTheme }) => {
   return (
-    <button onClick={toggleTheme}>
-      {isDarkMode ? 'Light' : 'Dark'} Mode
-    </button>
+    <div
+      className={`theme-toggle ${isDarkMode ? 'dark-mode' : ''}`}
+      onClick={toggleTheme}
+    >
+      <FaSun className="fa-sun" />
+      <FaMoon className="fa-moon" />
+    </div>
   );
 };
 
-export default ThemeToggle
+export default ThemeToggle;
 

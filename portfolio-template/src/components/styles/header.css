@@ -1,81 +1,50 @@
-/* Light Mode (Default) */
+/* Light Theme (Default) */
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Header Styles */
 .header {
-  background-color: #ff8c42; /* Orange */
-  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: black; /* Set black text in light mode */
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  background-color: var(--header-bg, #ffffff);
+  color: var(--header-text, #000000);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Navbar Styling */
-nav {
-  flex-grow: 1; /* Makes the navigation grow and take the available space */
-  display: flex;
-  justify-content: center; /* Centers the nav items horizontally */
+.header.dark-theme {
+  --header-bg: #333333;
+  --header-text: #ffffff;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
 }
 
 nav ul {
   list-style: none;
-  display: flex; /* Horizontal layout */
-  gap: 2rem; /* Space between items */
-  margin: 0;
-  padding: 0;
+  display: flex;
+  gap: 1rem;
 }
 
-nav ul li {
-  display: inline;
-}
-
-/* Light Mode Link Styling */
-.header a {
-  color: black; /* Ensure text is black in light mode */
+nav ul li a {
   text-decoration: none;
-  font-weight: bold;
+  color: inherit;
   transition: color 0.3s ease;
 }
 
-.header a:hover {
-  color: #ffd700; /* Gold on hover */
+nav ul li a {
+  color:inherit;
 }
-
-/* Dark Mode Fix - Ensure navbar is visible */
-.dark-theme .header {
-  background-color: #1a1a1a !important; /* Dark background */
-  color: white !important; /* White text */
-}
-
-.dark-theme .header a {
-  color: white !important;
-}
-
-.dark-theme .header a:hover {
-  color: #ff8c42; /* Orange on hover */
-}
-
-/* Theme Toggle Button */
-.theme-toggle {
-  background-color: #e67e22; /* Darker orange */
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.dark-theme .theme-toggle {
-  background-color: #333;
-  color: white;
-}
-
-.dark-theme .theme-toggle:hover {
-  background-color: #555;
-}
-

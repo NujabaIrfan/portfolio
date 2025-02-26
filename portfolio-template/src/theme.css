@@ -4,7 +4,7 @@ body {
 }
 
 /* Light Mode - Black Text & Orange Accents */
-.light-mode {
+body.light-mode {
   background-color: #ffffff;
   color: #000000; /* Black text */
 }
@@ -15,12 +15,20 @@ body {
   transition: color 0.3s;
 }
 
-.light-mode a:hover {
-  color: #d14e00; /* Darker orange on hover */
+.light-mode a{
+  color: white; /* Darker orange on hover */
+}
+
+.light-mode a:hover{
+  color: orange; /* Darker orange on hover */
+}
+.light-mode section {
+  background-color: #fff8f0; /* Soft orange-tinted white */
+  color: #000000; /* Ensures section text is black */
 }
 
 /* Dark Mode - Dark with Orange Accents */
-.dark-mode {
+body.dark-mode {
   background-color: #121212;
   color: #ffffff;
 }
@@ -31,6 +39,10 @@ body {
 
 .dark-mode a:hover {
   color: #ff6200;
+}
+
+.dark-mode section {
+  background-color: #1e1e1e;
 }
 
 /* Button Styling */
@@ -54,27 +66,104 @@ section {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Light Mode Section Background */
-.light-mode section {
-  background-color: #fff8f0; /* Soft orange-tinted white */
-  color: #000000; /* Ensures section text is black */
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--header-bg, #ff6200); /* Orange background */
+  color: var(--header-text, #000000); /* Black text */
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Mode Section Background */
-.dark-mode section {
-  background-color: #1e1e1e;
+.header.dark-mode {
+  --header-bg: #333333; /* Dark background */
+  --header-text: #ffffff; /* White text */
 }
 
-/* Header Styling */
-header {
-  background-color: #ff6200;
-  color: black; /* Changed to black for light mode */
-  padding: 15px;
-  text-align: center;
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+  letter-spacing: -0.5px;
 }
 
-.dark-mode header {
-  background-color: #ff9500;
-  color: white; /* Keeps white text for contrast */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li a:hover {
+  color: #ffffff; /* White text on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #000000; /* Black background */
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: #ff6200; /* Orange circle */
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-toggle.dark-mode::before {
+  transform: translateX(30px); /* Move to the right */
+  background-color: #ffffff; /* White circle */
+}
+
+.theme-toggle svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #ffffff; /* White icons */
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle .fa-sun {
+  left: 5px;
+  opacity: 1;
+}
+
+.theme-toggle .fa-moon {
+  right: 5px;
+  opacity: 0;
+}
+
+.theme-toggle.dark-mode .fa-sun {
+  opacity: 0;
+}
+
+.theme-toggle.dark-mode .fa-moon {
+  opacity: 1;
+}

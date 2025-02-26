@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ThemeToggle from './themetoggle'; // Import the ThemeToggle component
-import './styles/header.css'; // CSS for styling
+import '../index.css';
 
 const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -9,12 +9,12 @@ const Header = () => {
 
   useEffect(() => {
     if (isDarkMode) {
-      document.body.classList.add('dark-theme');
-      document.body.classList.remove('light-theme');
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
       localStorage.setItem('theme', 'dark');
     } else {
-      document.body.classList.add('light-theme');
-      document.body.classList.remove('dark-theme');
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
       localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
@@ -24,9 +24,9 @@ const Header = () => {
   };
 
   return (
-    <header className={`header ${isDarkMode ? 'dark-theme' : ''}`}>
+    <header className={`header ${isDarkMode ? 'dark-mode' : ''}`}>
       <div className="logo">
-        <a href="#home">Portfolio</a> {/* Use anchor tag for home */}
+        <a href="#home">Portfolio</a>
       </div>
       <nav>
         <ul>
@@ -42,4 +42,3 @@ const Header = () => {
 };
 
 export default Header;
-
