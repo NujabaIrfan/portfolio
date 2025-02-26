@@ -2,16 +2,36 @@ import React, { useState } from "react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData); // Replace with actual form submission logic
+
+    try {
+      const response = await fetch("http://localhost:5000/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus(data.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setStatus("An error occurred. Please try again.");
+    }
   };
 
   return (
     <div className="border-4 border-orange-500 p-8">
       <section className="container mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg">
         <h2 className="text-3xl font-extrabold text-orange-600 mb-6 text-center">Contact Us</h2>
+        {status && <p className="text-center text-orange-600">{status}</p>}
         <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg border-2 border-orange-500">
           <div>
             <input
@@ -55,4 +75,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
 
