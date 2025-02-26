@@ -25,7 +25,9 @@ const Header = () => {
     setIsDarkMode((prev) => !prev);
   };
 
+  // Define the toggleMenu function
   const toggleMenu = () => {
+    console.log("Menu toggled. Current state:", isMenuOpen); // Debugging
     setIsMenuOpen((prev) => !prev);
   };
 
@@ -43,6 +45,7 @@ const Header = () => {
         </ul>
       </nav>
       <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+      {/* Pass toggleMenu to the hamburger button */}
       <button className="menu-toggle" onClick={toggleMenu}>
         <span></span>
         <span></span>
